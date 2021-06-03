@@ -10,19 +10,29 @@
 <body>
     <div class="container text-center">
       <h1 class="jumbotron">Mission to Mars</h1>
+      <a href="/scrape">
+        scrape
+      </a>
       <div>
+          <h2>
+              {{mars.news_title}}
+          </h2>
+          <p>
+            {{mars.news_p}}
+          </p>
+          <img src="{{mars.featured_image}}">
         <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
-          {% for item in inventory %}
+          {% for item in mars.hemisphere %}
           <div class="col-lg-4">
               <div class="card" style="width: 20rem;">
                   <div class="card-body">
-                    <h4 class="card-title">{{ item.type }}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Cost: {{ item.cost }}</h6>
-                    <p class="card-text">Potential Revenue: {{ item.cost * item.stock}}</p>
+                    <h4 class="card-title">{{ item.title }}</h4>
+                    <img src="{{item.url}}" >
                   </div>
                 </div>
             </div>
             {% endfor %}
+            {{mars.mars_facts | safe}}
 
       </div>
     </div>
